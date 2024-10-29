@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +46,9 @@
     "eslint-plugin-react": "^7.37.2",
     "globals": "^15.11.0",
     "prettier": "^3.3.3"
+  },
+  "lint-staged": {
+    "*.js": "yarn run lint",
+    "*.{js,css,md,html,json}": "yarn run format"
   }
 }
