@@ -1,21 +1,25 @@
-function App() {
+import React from 'react';
+import { Provider } from 'mobx-react';
+import rootStore from './store/RootStore';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import MoviePage from './pages/MoviePage';
+import FavoritesPage from './pages/FavoritesPage';
+import Navigation from './components/Navigation';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider rootStore={rootStore}>
+      <Navigation />
+      <Routes>
+        <Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movie/:id" element={<MoviePage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+        </Route>
+      </Routes>
+    </Provider>
   );
-}
+};
 
 export default App;

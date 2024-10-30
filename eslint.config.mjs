@@ -31,6 +31,7 @@ export default [
       ...pluginPrettier.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
       'prettier/prettier': 'error',
+      'react/prop-types': 'off',
     },
   },
 ];
